@@ -1,6 +1,25 @@
 import React, {Component} from 'react'
 import Modal from './Modal'
 
+const Log = () => {
+    return(
+        <p id="log"></p>  
+    )
+}
+
+const Response = () => {
+    return(
+        <div id="response-container">
+            <div id="fname_response"></div>
+            <div id="lname_response"></div>
+            <div id="age_response"></div>
+            <div id="gender_response"></div>
+            <div id="email_response"></div>
+            <div id="comments_response"></div>
+        </div>
+    )
+}
+
 class App extends Component{
     render(){
         return(
@@ -13,15 +32,8 @@ class App extends Component{
             <button id="create-button" onclick="showModal()">Create a Record</button>
             <Modal />
             <div>
-                <p id="log"></p>    
-                <div id="response-container">
-                    <div id="fname_response"></div>
-                    <div id="lname_response"></div>
-                    <div id="age_response"></div>
-                    <div id="gender_response"></div>
-                    <div id="email_response"></div>
-                    <div id="comments_response"></div>
-                </div>
+                <Log />
+                <Response />
             </div>
         </div>
         )
