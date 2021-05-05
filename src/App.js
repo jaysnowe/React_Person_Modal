@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Modal from './Modal'
+import Response from './Response'
 import Form from './Form'
 
 const Log = () => {
@@ -8,25 +9,23 @@ const Log = () => {
     )
 }
 
-const Response = () => {
-    return(
-        <div id="response-container">
-            <div id="fname_response"></div>
-            <div id="lname_response"></div>
-            <div id="age_response"></div>
-            <div id="gender_response"></div>
-            <div id="email_response"></div>
-            <div id="comments_response"></div>
-        </div>
-    )
-}
+// const Response = () => {
+//     return(
+//         <div id="response-container">
+//             <div id="fname_response"></div>
+//             <div id="lname_response"></div>
+//             <div id="age_response"></div>
+//             <div id="gender_response"></div>
+//             <div id="email_response"></div>
+//             <div id="comments_response"></div>
+//         </div>
+//     )
+// }
 
 class App extends Component{
     state = {
         characters: [],
     }
-
-    
 
     render(){
         return(
