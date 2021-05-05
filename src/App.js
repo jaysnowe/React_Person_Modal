@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Modal from './Modal'
+import Form from './Form'
 
 const Log = () => {
     return(
@@ -21,6 +22,12 @@ const Response = () => {
 }
 
 class App extends Component{
+    state = {
+        characters: [],
+    }
+
+    
+
     render(){
         return(
         <div className="parent">
