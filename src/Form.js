@@ -1,5 +1,42 @@
 import React, {Component} from 'react'
 
+//{} are an object--keys and values
+const fieldAttributes = {
+    firstName:{
+        label: "First Name",
+        abbreviation: "fname",
+    }, 
+    lastName: {
+        label: "Last Name", 
+        abbreviation: "lname",
+    },
+    ageAttribute: {
+        label: "Age",
+        abbreviation: "age",
+    },
+    genderAttribute:{
+        label: "Gender", 
+        abbreviation: "gender",
+    },
+    emailAttribute:{
+        label: "Email",
+        abbreviation: "email",
+    },
+    commentsAttribute:{
+        label: "Comments",
+        abbreviation: "comments"
+    },
+}
+
+//more modern than { return()}--can only be used if 1 thing is returned & no logic
+const FieldInput = (attribute, state) => (<div className="label-input">
+<label for="attribute.abbreviation">{attribute.label}</label>
+<input type="text" id="attribute.abbreviation" name="attribute.abbreviation" value={state["fname"]} maxlength="100" className="field" onChange={() => {}}></input>
+<p className="validity">xThis field is required</p>
+
+</div>)
+//onChange{this.handleChange} - currently left as empty function
+
 
 
 class Form extends Component{
@@ -23,10 +60,18 @@ class Form extends Component{
 
     render(){
         const {fname, lname, age, gender, email, comments} = this.state;
-
+        const fieldValueArray = Object.values(fieldAttributes)
         return(
             <form id="form-modal">
-                <div className="label-input">
+                {
+                    //more correct way to write components with react
+                    fieldValueArray.map((attribute) => < FieldInput attribute={attribute} state={this.state}/>)
+
+                    // fieldValueArray.map(attribute) => {
+                    //     return fieldInput(attribute, this.state)
+                    // }
+                
+                /* <div className="label-input">
                     <label for="fname">First Name</label>
                     <input type="text" id="fname" name="fname" value={fname} maxlength="100" className="field" onChange={this.handleChange}></input>
                     <p className="validity">xThis field is required</p>
@@ -59,7 +104,7 @@ class Form extends Component{
                 </div>
                 <div id="submit-holder">
                     <input id="submit-button" value="Submit" onclick="DisplayInfo(); submitCloseModal(); logSubmit();"></input>
-                </div>
+                </div> */}
             </form>
         );
     }
