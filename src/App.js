@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import Modal from './Modal'
 import Response from './Response'
+import Log from './Log'
 import Form from './Form'
 
-const Log = () => {
-    return(
-        <p id="log"></p>  
-    )
-}
+// const Log = () => {
+//     return(
+//         <p id="log"></p>  
+//     )
+// }
 
 // const Response = () => {
 //     return(
