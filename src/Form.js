@@ -1,45 +1,62 @@
 import React, {Component} from 'react'
 
-//{} are an object--keys and values
-const fieldAttributes = {
-    firstName:{
-        label: "First Name",
-        abbreviation: "fname",
-    }, 
-    lastName: {
-        label: "Last Name", 
-        abbreviation: "lname",
-    },
-    ageAttribute: {
-        label: "Age",
-        abbreviation: "age",
-    },
-    genderAttribute:{
-        label: "Gender", 
-        abbreviation: "gender",
-    },
-    emailAttribute:{
-        label: "Email",
-        abbreviation: "email",
-    },
-    commentsAttribute:{
-        label: "Comments",
-        abbreviation: "comments"
-    },
-}
-
 //more modern than { return()}--can only be used if 1 thing is returned & no logic
-const FieldInput = (attribute, state) => (<div className="label-input">
-<label for="attribute.abbreviation">{attribute.label}</label>
-<input type="text" id="attribute.abbreviation" name="attribute.abbreviation" value={state["fname"]} maxlength="100" className="field" onChange={() => {}}></input>
-<p className="validity">xThis field is required</p>
+const FieldInput = ({attribute, state}) => (
+    <div className="label-input">
+        <label htmlFor="attribute.abbreviation">{attribute.label}</label>
+        <input type="text" id="attribute.abbreviation" name="attribute.abbreviation" value={state[attribute.abbreviation]} maxLength="100" className="field" onChange={this.clickHandler.bind(this)}></input>
+        <p className="validity">xThis field is required</p>
 
 </div>)
-//onChange{this.handleChange} - currently left as empty function
-
-
+//onChange{this.handleChange} 
 
 class Form extends Component{
+    //state = this.initialState
+    constructor(props){
+        super(props)
+
+        this.state={
+            fname: '',
+            lname: '',
+            age: '',
+            gender: '',
+            email: '',
+            comments: '',
+        }
+
+        this.clickHandler = this.clickHandler.bind(this)
+    }
+
+    //{} are an object--keys and values
+     fieldAttributes = {
+        firstName:{
+            label: "First Name",
+            abbreviation: "fname",
+        }, 
+        lastName: {
+            label: "Last Name", 
+            abbreviation: "lname",
+        },
+        ageAttribute: {
+            label: "Age",
+            abbreviation: "age",
+        },
+        genderAttribute:{
+            label: "Gender", 
+            abbreviation: "gender",
+        },
+        emailAttribute:{
+            label: "Email",
+            abbreviation: "email",
+        },
+        commentsAttribute:{
+            label: "Comments",
+            abbreviation: "comments",
+        },
+    }
+
+    
+
     initialState = {
         fname: '',
         lname: '',
@@ -48,21 +65,31 @@ class Form extends Component{
         email: '',
         comments: '',
     }
-    state = this.initialState
-
-    handleChange = (event) => {
-        const {name, value} = event.target
-        
-        this.setState({
-            [name]: value,
-        })
+    
+    clickHandler = (event) => {
+        const val = event.target.value;
+        this.setState ({
+            [event.target.name]: val
+        });
+    
+        //  const {name, value} = event.target
+            
+        // this.setState({
+        //     [name]: value
+        // });
     }
 
     render(){
-        const {fname, lname, age, gender, email, comments} = this.state;
-        const fieldValueArray = Object.values(fieldAttributes)
+        //const {fname, lname, age, gender, email, comments} = this.state;
+        const fieldValueArray = Object.values(this.state.fieldAttributes)
+        
+       
+        
+        console.log(Object.values(this.state.fieldAttributes));
+        console.log(Object.values(this.state.initialState));
         return(
             <form id="form-modal">
+                {/* {console.log(fieldValueArray.first)} */}
                 {
                     //more correct way to write components with react
                     fieldValueArray.map((attribute) => < FieldInput attribute={attribute} state={this.state}/>)

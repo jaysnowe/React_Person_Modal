@@ -89,6 +89,8 @@ button{
 
 /* input:invalid:required {
   background-image: linear-gradient(to right, pink, lightgreen);
+
+  look into creating 'input:required' pseudoclass to enhance validation
 } */
 
 #submit-button{

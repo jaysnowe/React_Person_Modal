@@ -7,7 +7,7 @@ const FormContainer = () => {
             <div>
                 <Form />
                 <div className="close-holder">
-                    <button id="close-button" onclick="closeModal()">Close</button>
+                    <button id="close-button">Close</button>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@ class Modal extends Component{
     
     render(){
         return(
-            <div className="glass"  onclick="closeModal()" id="glass">
+            <div className="glass" id="glass">
             <div className="w3-modal-content">
                 <div id="flex" className="flex">
                     <h4>Create a Record</h4>

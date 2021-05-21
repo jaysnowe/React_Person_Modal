@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Modal from './Modal'
 import Response from './Response'
 import Log from './Log'
-import Form from './Form'
+
 
 // const Log = () => {
 //     return(
@@ -36,7 +36,7 @@ class App extends Component{
             <h3>Text that will appear behind the modal</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
-            <button id="create-button" onclick="showModal()">Create a Record</button>
+            <button id="create-button">Create a Record</button>
             <Modal />
             <div>
                 <Log />
