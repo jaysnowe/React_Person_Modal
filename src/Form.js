@@ -28,6 +28,28 @@ const fieldAttributes = {
     },
 }
 
+const initialState = {
+    fname: '',
+    lname: '',
+    age: '',
+    gender: '',
+    email: '',
+    comments: '',
+};
+
+const clickHandler = (event) => {
+    const val = event.target.value;
+    this.setState ({
+        [event.target.name]: val
+    });
+
+    //  const {name, value} = event.target
+        
+    // this.setState({
+    //     [name]: value
+    // });
+}
+
 //more modern than { return()}--can only be used if 1 thing is returned & no logic
 const FieldInput = ({attribute, state, clickHandler}) => (
     <div className="label-input">
@@ -38,7 +60,7 @@ const FieldInput = ({attribute, state, clickHandler}) => (
 </div>)
 
 class Form extends Component{
-    state = this.initialState
+    
     constructor(props){
         super(props)
 
@@ -50,31 +72,12 @@ class Form extends Component{
             email: '',
             comments: '',
         }
+        //state = this.initialState
 
         //this.clickHandler = this.clickHandler.bind(this)
     }
 
-    initialState = {
-        fname: '',
-        lname: '',
-        age: '',
-        gender: '',
-        email: '',
-        comments: '',
-    };
-
-    clickHandler = (event) => {
-        const val = event.target.value;
-        this.setState ({
-            [event.target.name]: val
-        });
     
-        //  const {name, value} = event.target
-            
-        // this.setState({
-        //     [name]: value
-        // });
-    }
 
     render(){
         //const {fname, lname, age, gender, email, comments} = this.state;
