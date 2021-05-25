@@ -16,7 +16,9 @@ const FormContainer = () => {
 
 
 class Modal extends Component{
-    
+    // constructor(){
+
+    // }
     render(){
         return(
             <div className="glass" id="glass">

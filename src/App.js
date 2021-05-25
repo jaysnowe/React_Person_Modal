@@ -24,8 +24,10 @@ import Log from './Log'
 // }
 
 class App extends Component{
-    state = {
-        characters: [],
+    constructor(){
+        state = {
+            characters: [],
+        }
     }
 
     render(){

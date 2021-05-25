@@ -1,17 +1,44 @@
 import React, {Component} from 'react'
 
+ //{} are an object--keys and values
+const fieldAttributes = {
+    firstName:{
+        label: "First Name",
+        abbreviation: "fname",
+    }, 
+    lastName: {
+        label: "Last Name", 
+        abbreviation: "lname",
+    },
+    ageAttribute: {
+        label: "Age",
+        abbreviation: "age",
+    },
+    genderAttribute:{
+        label: "Gender", 
+        abbreviation: "gender",
+    },
+    emailAttribute:{
+        label: "Email",
+        abbreviation: "email",
+    },
+    commentsAttribute:{
+        label: "Comments",
+        abbreviation: "comments",
+    },
+}
+
 //more modern than { return()}--can only be used if 1 thing is returned & no logic
-const FieldInput = ({attribute, state}) => (
+const FieldInput = ({attribute, state, clickHandler}) => (
     <div className="label-input">
         <label htmlFor="attribute.abbreviation">{attribute.label}</label>
-        <input type="text" id="attribute.abbreviation" name="attribute.abbreviation" value={state[attribute.abbreviation]} maxLength="100" className="field" onChange={this.clickHandler.bind(this)}></input>
+        <input type="text" id="attribute.abbreviation" name="attribute.abbreviation" value={state[attribute.abbreviation]} maxLength="100" className="field" onChange={this.clickHandler}></input>
         <p className="validity">xThis field is required</p>
 
 </div>)
-//onChange{this.handleChange} 
 
 class Form extends Component{
-    //state = this.initialState
+    state = this.initialState
     constructor(props){
         super(props)
 
@@ -24,38 +51,8 @@ class Form extends Component{
             comments: '',
         }
 
-        this.clickHandler = this.clickHandler.bind(this)
+        //this.clickHandler = this.clickHandler.bind(this)
     }
-
-    //{} are an object--keys and values
-     fieldAttributes = {
-        firstName:{
-            label: "First Name",
-            abbreviation: "fname",
-        }, 
-        lastName: {
-            label: "Last Name", 
-            abbreviation: "lname",
-        },
-        ageAttribute: {
-            label: "Age",
-            abbreviation: "age",
-        },
-        genderAttribute:{
-            label: "Gender", 
-            abbreviation: "gender",
-        },
-        emailAttribute:{
-            label: "Email",
-            abbreviation: "email",
-        },
-        commentsAttribute:{
-            label: "Comments",
-            abbreviation: "comments",
-        },
-    }
-
-    
 
     initialState = {
         fname: '',
@@ -64,8 +61,8 @@ class Form extends Component{
         gender: '',
         email: '',
         comments: '',
-    }
-    
+    };
+
     clickHandler = (event) => {
         const val = event.target.value;
         this.setState ({
@@ -83,10 +80,8 @@ class Form extends Component{
         //const {fname, lname, age, gender, email, comments} = this.state;
         const fieldValueArray = Object.values(this.state.fieldAttributes)
         
-       
-        
         console.log(Object.values(this.state.fieldAttributes));
-        console.log(Object.values(this.state.initialState));
+        console.log(Object.values(initialState));
         return(
             <form id="form-modal">
                 {/* {console.log(fieldValueArray.first)} */}

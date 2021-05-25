@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 
 
 class Response extends Component{
+    // constructor(){
+
+    // }
     render(){
         return(
         <div id="response-container">
